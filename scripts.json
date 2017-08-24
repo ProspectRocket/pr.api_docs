@@ -1,0 +1,227 @@
+{
+  "name":"Scripts",
+  "description":[
+    {
+      "url": "/bk/scripts/templates",
+      "method": "GET",
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "items": [
+              {
+                "id": "3366",
+                "user_id": "1171",
+                "name": "[RV] DM Cold Call",
+                "title": "RepVideos Close the Decision Maker Script: Cold Call",
+                "text": "RepVideos Close the Decision Maker Script: Cold Call",
+                "order": "0",
+                "admin_script_id": "1",
+                "category_id": "1439",
+                "admin_category_id": "1",
+                "template_type": "2",
+                "shared_with": null
+              },
+              {
+                "id": "3367",
+                "user_id": "1171",
+                "name": "[RV] GK Cold Call",
+                "title": "RepVideo Past The Gatekeeper",
+                "text": "Rep Videos",
+                "order": "0",
+                "admin_script_id": "2",
+                "category_id": "1439",
+                "admin_category_id": "1",
+                "template_type": "2",
+                "shared_with": null
+              }]
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Retrieve script templates"
+    },
+    {
+      "url": "/bk/scripts/templates",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "user_id",
+            "type": "number"
+          },
+          {
+            "name": "category_id",
+            "type": "number"
+          },
+          {
+            "name": "template_type",
+            "type": "number"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          }
+        ],
+        "optional": [
+          {
+            "name": "text",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data":{
+              "id": "5276",
+              "user_id": "1171",
+              "name": "test script template",
+              "title": "test script template title",
+              "text": "test script template text",
+              "order": "2",
+              "admin_script_id": null,
+              "category_id": "1",
+              "admin_category_id": null,
+              "template_type": "1",
+              "shared_with": null
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Create user script template"
+    },
+    {
+      "url": "/bk/scripts/templates/<item_id>",
+      "method": "PATCH",
+      "payloads": {
+        "optional": [
+          {
+            "name": "user_id",
+            "type": "number"
+          },
+          {
+            "name": "category_id",
+            "type": "number"
+          },
+          {
+            "name": "template_type",
+            "type": "number"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data":{
+            "id": "5276",
+            "user_id": "1171",
+            "name": "test script template",
+            "title": "test script template title",
+            "text": "test script template text",
+            "order": "2",
+            "admin_script_id": null,
+            "category_id": "1",
+            "admin_category_id": null,
+            "template_type": "1",
+            "shared_with": null
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Update user script template"
+    },
+    {
+      "url": "/bk/scripts/templates/<item_id>",
+      "method": "DELETE",
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "items": [
+              {
+                "id": "3366",
+                "user_id": "1171",
+                "name": "[RV] DM Cold Call",
+                "title": "RepVideos Close the Decision Maker Script: Cold Call",
+                "text": "RepVideos Close the Decision Maker Script: Cold Call",
+                "order": "0",
+                "admin_script_id": "1",
+                "category_id": "1439",
+                "admin_category_id": "1",
+                "template_type": "2",
+                "shared_with": null
+              },
+              {
+                "id": "3367",
+                "user_id": "1171",
+                "name": "[RV] GK Cold Call",
+                "title": "RepVideo Past The Gatekeeper",
+                "text": "Rep Videos",
+                "order": "0",
+                "admin_script_id": "2",
+                "category_id": "1439",
+                "admin_category_id": "1",
+                "template_type": "2",
+                "shared_with": null
+              }]
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Delete user script template"
+    }
+  ]
+}

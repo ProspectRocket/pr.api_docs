@@ -1,0 +1,286 @@
+{
+  "name":"Campaigns",
+  "description":[
+    {
+      "url": "/bk/campaigns/<campaign_id>/graph_contacts_summary",
+      "method": "GET",
+      "queryStrings": {
+        "required": [
+          {
+            "name":"init_date",
+            "type": "string"
+          },
+          {
+            "name":"end_data",
+            "type": "string"
+          },
+          {
+            "name":"unit",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "imported_contacts": {
+              "items": [
+                {
+                  "count": "3",
+                  "date": "2017-03-01"
+                }
+              ],
+              "count": 1
+            },
+            "added_contacts": {
+              "items": [
+                {
+                  "count": "1",
+                  "date": "2017-03-01"
+                },
+                {
+                  "count": "2",
+                  "date": "2017-03-02"
+                }
+              ],
+              "count": 2
+            },
+            "imported": "",
+            "in_queue": "",
+            "active": "",
+            "completed": ""
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Response campaigns contacts timeline"
+    },
+    {
+      "url": "/bk/campaigns/<campaign_id>/summary",
+      "method": "GET",
+      "successResponses": [
+        {
+          "code": 200,
+          "data":{
+            "contacts": {
+              "imported": "5",
+              "sent_to_campaign": "3",
+              "bounced": "1",
+              "unsubscribed": "0"
+            },
+            "touches":{
+              "email":{
+                "sent": "3",
+                "opens": 0,
+                "click": 0,
+                "replies": 0
+              },
+              "voice":{
+                "calls": "0",
+                "machine": 0,
+                "transfer": 0,
+                "live_answer": 0
+              }
+            },
+            "pixels":{
+              "traffic_fuel_pixel":{
+                "opens": "0"
+              },
+              "retargeting_pixel":{
+                "id": "1",
+                "name": "RET",
+                "opens": 0
+              }
+            },
+            "automations":{
+              "items":[
+                {
+                  "id": "3",
+                  "campaign_id": "571",
+                  "name": "sdaasd",
+                  "integration_id": "1",
+                  "is_active": "1",
+                  "company_count": "0"
+                }
+              ],
+              "count": "1"
+            }
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Response with the stats that will be use in Campaign Summary"
+    },
+    {
+      "url": "/bk/campaigns/<campaign_id>/throttle",
+      "method": "PATCH",
+      "payloads": {
+        "required": [
+          {
+            "name": "throttle",
+            "type": "number"
+          },
+          {
+            "name": "add_to_campaign_time",
+            "type": "date",
+            "value": "hh:mm:ss"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data":{
+            "throttle":"5",
+            "add_to_campaign_time":"00:12:22"
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "LIMIT THE AMOUNT OF CONTACTS THAT GO IN THE CAMPAIGN PER DAY"
+    },
+    {
+      "url": "bk/campaigns/<act_hist_id>/campaign_action_history_contacts",
+      "method": "GET",
+      "payloads": {
+        "required": [
+          {
+            "name": "page",
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "type": "number"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "items": {
+              "items": [
+                {
+                  "contact_first_name": "Juan",
+                  "contact_last_name": "Perez",
+                  "contact_full_name": "Juan Perez"
+                }
+              ],
+              "total": "3"
+            }
+          }
+        }
+      ],
+      "errorResponses": [
+
+      ],
+      "note": "History contact"
+    },
+    {
+      "url": "/campaigns/get_campaigns_send_modal_for_automations",
+      "method": "GET",
+      "queryStrings": {
+        "optional": [
+        ]
+      },
+      "successResponses": [
+        {
+          "status": "Success",
+          "message": null,
+          "data": [
+            {
+              "id": "430",
+              "name": "follow 1",
+              "status": "4",
+              "user_id": "798",
+              "template_type": "0",
+              "campaign_type": "1",
+              "sequency_type": "1",
+              "campaign_class": "1",
+              "page_id": null,
+              "app_id": 1
+            }
+          ]
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Get Campaigns for Automations"
+    },
+    {
+      "url": "/campaigns/get_campaigns_send_modal_for_automations/<user_id>",
+      "method": "GET",
+      "queryStrings": {
+        "optional": [
+        ]
+      },
+      "successResponses": [
+        {
+          "status": "Success",
+          "message": null,
+          "data": [
+            {
+              "id": "430",
+              "name": "follow 1",
+              "status": "4",
+              "user_id": "798",
+              "template_type": "0",
+              "campaign_type": "1",
+              "sequency_type": "1",
+              "campaign_class": "1",
+              "page_id": null,
+              "app_id": 1
+            }
+          ]
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Get Campaigns for Automations for this user_id(used when a campaign is shared on lc)"
+    }
+  ]
+}

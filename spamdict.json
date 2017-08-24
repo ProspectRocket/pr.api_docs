@@ -1,0 +1,126 @@
+{
+  "name":"Spam Dictionary",
+  "description":[
+    {
+      "url": "/bk/spamdict",
+      "method": "GET",
+      "queryStrings": {
+        "required": [
+        ],
+        "optional": [
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "items": [
+              {
+                "id": 5,
+                "value": "word 1"
+              }
+            ],
+            "count": 10
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 401,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Get the list of spam words"
+    },
+    {
+      "url": "/bk/spamdict",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name":"value",
+            "type": "string"
+          }
+        ],
+        "optional": [
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": 5
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 401,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/spamdict/<item_id>",
+      "method": "PATCH",
+      "payloads": {
+        "required": [
+          {
+            "name": "value",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": "No Content"
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 401,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Update the spam word or phrase"
+    },
+    {
+      "url": "/bk/spamdict/<item_id>",
+      "method": "DELETE",
+      "payloads": {
+        "required": [
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": "No Content"
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 401,
+          "data": {}
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Delete the spam word or phrase"
+    }
+  ]
+}

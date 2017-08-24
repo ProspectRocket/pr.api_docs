@@ -1,0 +1,302 @@
+{
+  "name":"Optin Kahuna: Forms",
+  "description":[
+    {
+      "url": "/ci/forms/form/id",
+      "method": "GET",
+      "queryStrings": {
+        "optional": [
+          {
+            "name": "fields",
+            "type": "string[]"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": 1,
+            "name": "First Form",
+            "url_name": "",
+            "type": 2,
+            "campaignlc_id": 1,
+            "form_template_id": "AA",
+            "user_id": 12,
+            "custom_data": {},
+            "is_published": 1,
+            "contact_type": 1,
+            "contact_fields": [
+              {
+                "id": 1,
+                "field_id": 1,
+                "db_field": "contact_first_name",
+                "is_required": 1,
+                "check_allow_sms_message": 0
+              }
+            ]
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Get a form resource"
+    },
+    {
+      "url": "/ci/forms/form/id",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "contact_fields",
+            "type": "object[]"
+          },
+          {
+            "name": "custom_data",
+            "type": "string"
+          },
+          {
+            "name": "contact_type",
+            "type": "int"
+          },
+          {
+            "name": "type",
+            "type": "int"
+          },
+          {
+            "name": "form_template_id",
+            "type": "string"
+          }
+        ],
+        "optional": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+           "code": 204,
+           "data": []
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Save a form resource"
+    },
+    {
+      "url": "/ci/forms/",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "contact_fields",
+            "type": "object[]"
+          },
+          {
+            "name": "custom_data",
+            "type": "string"
+          },
+          {
+            "name": "contact_type",
+            "type": "int"
+          },
+          {
+            "name": "type",
+            "type": "int"
+          },
+          {
+            "name": "template_id",
+            "type": "string"
+          },
+          {
+            "name": "campaign_lc_id",
+            "type": "int"
+          }
+        ],
+        "optional": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+           "code": 201,
+           "data": {"id": 1}
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Create a form resource"
+    },
+    {
+      "url": "/ci/forms/form",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "id",
+            "type": "int"
+          },
+          {
+            "name": "contact_fields",
+            "type": "object[]"
+          },
+          {
+            "name": "custom_data",
+            "type": "string"
+          },
+          {
+            "name": "contact_type",
+            "type": "int"
+          },
+          {
+            "name": "type",
+            "type": "int"
+          },
+          {
+            "name": "form_template_id",
+            "type": "string"
+          }
+        ],
+        "optional": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+           "code": 201,
+           "data": {"id": 1}
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Create a form resource"
+    },
+    {
+      "url": "/ci/forms/subscribe",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "form_id",
+            "type": "int"
+          },
+          {
+            "name": "data",
+            "type": "string"
+          },
+          {
+            "name": "device_type",
+            "type": "int"
+          }
+        ],
+        "optional": [
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Subcribe a lead"
+    },
+    {
+      "url": "/ci/forms/view_stats/id",
+      "method": "POST",
+      "payloads": {
+        "required": [
+        ],
+        "optional": [
+          {
+            "name": "device_type",
+            "type": "int"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 201
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Save a view stats over form. Device type default: Computer"
+    },
+    {
+      "url": "/ci/forms/pixels",
+      "method": "GET",
+      "queryStrings": {
+        "optional": [
+          {
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": 1,
+            "entity_type": "1",
+            "user_id": "1",
+            "type": 2,
+            "campaignlc_id": 1,
+            "form_template_id": "AA",
+            "user_id": 12,
+            "custom_data": {},
+            "is_published": 1,
+            "contact_type": 1,
+            "contact_fields": [
+              {
+                "id": 1,
+                "field_id": 1,
+                "db_field": "contact_first_name",
+                "is_required": 1,
+                "check_allow_sms_message": 0
+              }
+            ]
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Get the pixel stats"
+    }
+  ]
+}

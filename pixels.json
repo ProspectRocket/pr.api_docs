@@ -1,0 +1,91 @@
+{
+  "name":"Pixels",
+  "description":[
+    {
+      "url": "/bk/pixels",
+      "method": "GET",
+      "queryStrings": {
+        "required": [
+          {
+            "name":"id",
+            "type": "string"
+          },
+          {
+            "name":"age",
+            "type": "number"
+          }
+        ],
+        "optional": [
+          {
+            "name": "fields",
+            "type": "[strings]",
+            "value": "['tags.category_id', 'tags.category_name']"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": 5,
+            "name": "resource x"
+          }
+        },
+        {
+          "code": 204,
+          "data": "No Content"
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": 5,
+            "name": "Campaign"
+          }
+        },
+        {
+          "code": 204,
+          "data": "No Content"
+        }
+      ],
+      "note": "Some text here if need"
+    },
+    {
+      "url": "/bk/pixels",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name":"id",
+            "type": "string"
+          },
+          {
+            "name":"age",
+            "type": "number"
+          }
+        ],
+        "optional": [
+          {
+            "name": "fields",
+            "type": "[strings]",
+            "value": "['tags.category_id', 'tags.category_name']"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": 5,
+            "name": "resource x"
+          }
+        },
+        {
+          "code": 204,
+          "data": "No Content"
+        }
+      ]
+    }
+  ]
+}

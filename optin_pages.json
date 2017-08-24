@@ -1,0 +1,87 @@
+{
+  "name":"Optin Kahuna: Pages",
+  "description":[
+    {
+      "url": "/ci/pages/lcc_page",
+      "method": "GET",
+      "queryStrings": {
+        "require":[
+          {
+            "name" : "subdomain",
+            "type" : "string"
+          },
+          {
+            "name" : "extension_url",
+            "type" : "string"
+          },
+          {
+            "name" : "token",
+            "type" : "string"
+          }
+        ],
+        "optional": [
+          {
+            "name": "fields",
+            "type": "string[]"
+          },
+          {
+            "name": "lcc_id",
+            "type": "integer"
+          },
+          {
+            "name": "lead_id",
+            "type": "integer"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": "2002",
+            "name": "AA - Variation Page 2017-05-17 17:10",
+            "subdomain": "delmo811",
+            "url_name": "aa___variation_page_2017_05_17_17_10",
+            "template_id": "thankYouPage1",
+            "user_id": "12",
+            "business_id": "219",
+            "seo_page_title": "Testing QA",
+            "seo_page_meta_keys": "",
+            "seo_page_meta_desc": "AAAAAAAA AAA",
+            "custom_data": "",
+            "integration_id": "",
+            "integration_options": "b:0;",
+            "thanks_page_url": null,
+            "send_mail_after_subscribe": "0",
+            "send_mail_data": null,
+            "tracking_code_for_header": "",
+            "tracking_code_for_footer": "",
+            "deal_end": null,
+            "is_published": "1",
+            "published": null,
+            "created": "2017-05-17 17:10:16",
+            "updated": "2017-05-17 16:48:56",
+            "total_views": "12",
+            "total_unique_views": "1",
+            "total_optin": "3",
+            "reveal_mode": "0",
+            "type": null,
+            "webinar_id": null,
+            "total_calendar_views": "0",
+            "base_url": null,
+            "as_type": "2",
+            "total_unique_optins": "1",
+            "pixels": []
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Get a LCC pages resource in publication mode. Currently this resource show all storage fields, but will be changed"
+    }
+  ]
+}

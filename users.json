@@ -1,0 +1,445 @@
+{
+  "name":"Users",
+  "description":[
+    {
+      "url": "/bk/users/me/subdomains",
+      "method": "GET",
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "count": 1,
+            "items": [
+              {
+                "user_id": 1,
+                "subdomain": "subdomain1"
+              }
+            ]
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "List resources sub-domains of an users, current only given 1 sub-domains"
+    },
+    {
+      "url": "/bk/users/me/pipeline_stages",
+      "method": "GET",
+      "note": "List of pipeline_stages, can be categorized by pipeline",
+      "queryStrings": {
+        "optional": [
+          {
+            "name": "categorized",
+            "type": "integer",
+            "note": "Values can be 1 or 0"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "items": [
+              {
+                "pipeline_id": "582",
+                "pipeline_name": "Default Pipeline",
+                "stages": [
+                  {
+                    "id": "2906",
+                    "name": "Prospecting",
+                    "color": "#D9D9D9"
+                  }
+                ]
+              }
+            ],
+            "count": 1
+          }
+        },
+        {
+          "items": [
+            {
+              "id": "2906",
+              "name": "Prospecting",
+              "color": "#D9D9D9",
+              "pipeline_id": "582",
+              "pipeline_name": "Default Pipeline"
+            }
+          ],
+          "count": 1
+        }
+      ],
+
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/users/me/company_settings",
+      "method": "GET",
+      "note": "Get the company settings of user",
+      "queryStrings": {
+        "optional": [ ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "admin_name": "David Smith",
+            "admin_title": "Owner",
+            "name": "ABD Dental",
+            "address": "Address",
+            "city": "Florida",
+            "state": "Florida",
+            "zip": 5555,
+            "country": "Country",
+            "url": "Website Url",
+            "phone": "555555",
+            "email": "email@email.com"
+          }
+        }],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/users/me/company_settings",
+      "method": "PATCH",
+      "note": "Update company settings of user",
+      "payloads": {
+        "optional": [
+          {
+            "name": "admin_name",
+            "type": "string"
+          },
+          {
+            "name": "admin_title",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "name": "zip",
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": []
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 403002,
+            "message": "A staff user can't make this operation."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/users/me/notification_settings",
+      "method": "GET",
+      "note": "Get user notification settings (Alerts Setup)",
+      "queryStrings": {
+        "optional": [
+          {
+            "name": "types",
+            "type": "strings[]",
+            "value": "['email', 'sms_call']"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "email": "kindox@gmail.com",
+            "phone": "5454545454",
+            "enable_email": "1",
+            "enable_phone": "1",
+            "schedule": [
+              "0",
+              "1"
+            ],
+            "initTime": "01:00 PM",
+            "endTime": "09:00 PM",
+            "email_record": {
+              "id": "1",
+              "user_id": "789",
+              "type": "1",
+              "enabled": "1",
+              "data": "{\"targets\":[\"kindox@gmail.com\",\"kindox2@gmail.com\"],\"daysOfWeek\":[\"0\",\"1\",\"2\",\"3\"],\"initTime\":\"02:00 PM\",\"endTime\":\"08:00 PM\"}"
+            },
+            "sms_record": {
+              "id": "3",
+              "user_id": "789",
+              "type": "2",
+              "enabled": "1",
+              "data": "{\"targets\":[\"5454545454\"],\"daysOfWeek\":[\"0\",\"1\"],\"initTime\":\"01:00 PM\",\"endTime\":\"09:00 PM\"}"
+            }
+          }
+        }],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/users/me/notification_settings",
+      "method": "PATCH",
+      "note": "Update user notification settings (Alerts Setup). Payload: {\"enable_phone\":true,\"enable_email\":true,\"email\":\"rterrer@gmail.com\",\"phone\":\"+587896357\",\"schedule\":[\"0\",\"1\",\"2\",\"3\"],\"initTime\":\"02:00 PM\",\"endTime\":\"08:00 PM\"}",
+      "payloads": {
+        "optional": [
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "enable_email",
+            "type": "boolean"
+          },
+          {
+            "name": "phone",
+            "type": "string"
+          },
+          {
+            "name": "enable_phone",
+            "type": "boolean"
+          },
+          {
+            "name": "initTime",
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "type": "string"
+          },
+          {
+            "name": "schedule",
+            "type": "array"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": []
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 400100,
+            "message": "The property schedule|email|phone|initTime|endTime is required."
+          }
+        },
+        {
+          "code": 400,
+          "data":{
+            "code": 400114,
+            "message": "Invalid format for property initTime|endTime|schedule."
+          }
+        },
+        {
+          "code": 400,
+          "data":{
+            "code": 600100,
+            "message": "It looks like init time is greater than end time, so interchange time values."
+          }
+        },
+        {
+          "code": 400,
+          "data":{
+            "code": 600101,
+            "message": "Sorry but the time interval is too short. It should be greater than 5 minutes."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/users/current",
+      "method": "PATCH",
+      "payloads": {
+        "required": [
+          {
+            "name": "contact_email",
+            "type": "string"
+          },
+          {
+            "name": "timezone",
+            "type": "string"
+          }
+        ],
+        "optional": [
+
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "last_name",
+            "type": "string"
+          },
+          {
+            "name": "domain",
+            "type": "string"
+          },
+          {
+            "name": "subdomain",
+            "type": "string"
+          },
+          {
+            "name": "contact_phone",
+            "type": "string"
+          },
+          {
+            "name": "popup_activity_reminder",
+            "type": "boolean"
+          },
+          {
+            "name": "signature",
+            "type": "string"
+          },
+          {
+            "name": "is_default_signature",
+            "type": "boolean"
+          },
+          {
+            "name": "password",
+            "type": "string"
+          },
+          {
+            "name": "re_password",
+            "type": "string"
+          },
+          {
+            "name": "avatar_name",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": {}
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 500,
+          "data": {}
+        },
+        {
+          "code": 400,
+          "data": {}
+        }
+      ],
+      "note": "Updated user"
+    },
+    {
+      "url": "/bk/users/current/account/",
+      "method": "GET",
+      "queryStrings": {
+        "optional": [
+          {
+            "name": "fields",
+            "type": "strings[]",
+            "value": "['users.is_staff','users.first_name','users.last_name','users.contact_phone','users.avatar','users.popup_activity_reminder','users.signature','users.subdomain_changes']"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "userId":"790",
+            "name":"Kindox",
+            "email":"kindox@gmail.com",
+            "subdomain":"delmo811",
+            "domain":null,
+            "google_calendar_activity":"1",
+            "throttle_edit_notification":"1",
+            "is_login_by_customer":false,
+            "lc_code_show_again":"1",
+            "timezone":"Africa\/Casablanca",
+            "parent_id":"789",
+            "is_staff":true,
+            "first_name":"Kindox",
+            "last_name":"Perez",
+            "contact_phone":"1111111",
+            "avatar":"no-avatar.png",
+            "popup_activity_reminder":true,
+            "signature":null,
+            "customer_autologin":null,
+            "subdomain_changes":"1"
+          }
+
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code":400108,
+            "message":"The parameter '1' is invalid."
+          }
+        }
+      ],
+      "note": "Gets user's information to be display on settings tab"
+    }
+  ]
+}

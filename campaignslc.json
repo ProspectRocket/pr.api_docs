@@ -1,0 +1,610 @@
+{
+  "name": "Lead Capture Campaigns",
+  "description": [
+    {
+       "url": "/bk/campaignslc/<campaign_id>/pages",
+       "method": "GET",
+       "queryStrings": {
+          "required": [
+            {
+              "name": "isActive",
+              "type": "bool",
+              "description": "1 - Active Pages, 2 - Historical Pages"
+            }
+          ],
+         "optional": [
+           {
+             "name": "fields",
+             "type": "string[]"
+           }
+         ]
+       },
+      "successResponses": [{
+        "code": 200,
+        "data": {
+          "counts": 0,
+          "items": [
+            {
+              "id"  : 1,
+              "name": "Page name",
+              "is_active" : 1,
+              "is_stats_active": 1,
+              "type" : 1,
+              "stats": {
+                 "total_views": 1,
+                 "total_clicks": 1,
+                 "conversions": 1
+              }
+            }
+          ]
+        }
+       }],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "List of pages in campaigns, isActive params determine if is active pages or history  of pages"
+    },{
+       "url": "/bk/campaignslc/<campaign_id>/pages",
+       "method": "POST",
+       "payloads": {
+          "required": [
+            {
+              "name": "template_page_id",
+              "type": "string"
+            }
+          ],
+         "optional": [
+           {
+             "name": "split_test",
+             "type": "boolean"
+           }
+         ]
+       },
+      "successResponses": [{
+        "code": 201,
+        "data": {
+            "id": 1
+        }
+       },{
+        "code": 201,
+        "data": {
+            "ids": [2,3]
+        }
+       }],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Add pages variations to a lead capture campaign"
+    },{
+       "url": "/bk/campaignslc/<campaign_id>/pages/<page_id>",
+       "method": "GET",
+       "queryStrings": {
+        "optional": [
+          {
+            "name": "fields",
+            "type": "string[]"
+          }
+        ]
+       },
+       "successResponses": [{
+        "code": 200,
+        "data": {
+              "id"  : 1,
+              "name": "Page name",
+              "is_active" : 1,
+              "is_stats_active": 1,
+              "type" : 1,
+              "custom_data" : {},
+              "stats": {
+                 "total_views": 1,
+                 "total_clicks": 1,
+                 "conversions": 1
+              }
+            }
+       }],
+       "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Given a page in campaign"
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/pages_stats",
+      "method": "GET",
+      "queryStrings": {
+        "required": [
+          {
+            "name": "init_date",
+            "type": "string"
+          },
+          {
+            "name": "end_data",
+            "type": "string"
+          },
+          {
+            "name": "unit",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "views": {
+              "items": [
+                {
+                  "count": "3",
+                  "date": "2017-03-01"
+                }
+              ],
+              "count": 1
+            },
+            "clicks": {
+              "items": [
+                {
+                  "count": "1",
+                  "date": "2017-03-01"
+                },
+                {
+                  "count": "2",
+                  "date": "2017-03-02"
+                }
+              ],
+              "count": 2
+            },
+            "total_views": 0,
+            "total_clicks": 0,
+            "conversions": 0
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Response timeline of thank you pages in a lead capture campaigns"
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/pages/<page_id>/clears",
+      "method": "POST",
+      "payloads": {
+        "required": []
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": []
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 400,
+          "data":{
+            "code": 400109,
+            "message": "Invalid data entry."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Clear stats of a thank you page in a lead capture campaign"
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/pages/<page_id>/duplicate",
+      "method": "POST",
+      "queryStrings": {
+        "required": []
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": []
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 400,
+          "data":{
+            "code": 400109,
+            "message": "Invalid data entry."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Duplicate control pages as variation page"
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/page_settings",
+      "method": "POST",
+      "payloads": {
+        "optional": [
+              {
+                 "name": "purl",
+                 "type": "object"
+              },
+              {
+                 "name": "restore",
+                 "type": "object"
+              },
+              {
+                 "name": "title",
+                 "type": "string"
+              },
+              {
+                 "name": "description",
+                 "type": "string"
+              },
+              {
+                 "name": "notification_emails",
+                 "type": "string[]"
+              }
+         ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": []
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "Update settings of pages in lead capture campaign"
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/templates",
+      "method": "GET",
+      "successResponses": [{
+        "code": 200,
+        "data": {
+          "counts": 0,
+          "items": [
+            {
+            "name": "Trust Trigger Long",
+            "categories": "Landing Page",
+            "path": "landingPage1",
+            "support": "Mobile, Responsive",
+            "description": "Let's talk about why this page converts. Well, the first reason that it converts so well is that it simply uses the best knowledge we have about conversion design. Everything from the colors to the text to the location of the buttons and the colors of the buttons and everything is designed around best conversion practice. Iâ€™m sure youâ€™ve seen traditional webinar registration pages like this that are provided by companies like GoToWebinar. Theyâ€™re ugly, they donâ€™t convert well, and by simply creating a compelling, well-designed webinar registration page, you can increase conversions.",
+            "screenshotUrl": "http://optin.yoan.gsi.com/ci/../ui/app/templates/landingPage1/screenshot.png"
+            }
+          ]
+        }
+      }],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data":{
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ],
+      "note": "List of templates"
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/validate_purl",
+      "method": "GET",
+      "queryStrings": {
+        "required": [
+          {
+            "name": "extension_url",
+            "type": "string"
+          },
+          {
+            "name": "subdomain",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "valid": true
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/pixels",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "campaign_lc_id",
+            "type": "integer"
+          },
+          {
+            "name": "entity_type",
+            "type": "integer"
+          },
+          {
+            "name": "pixel_id",
+            "type": "integer"
+          },
+          {
+            "name": "custom_pixel_data",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "valid": true
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/pixels",
+      "method": "PATCH",
+      "payloads": {
+        "required": [
+          {
+            "name": "id",
+            "type": "integer",
+            "comment": "the id for the pixel that i want to edit"
+          },
+          {
+            "name": "campaign_lc_id",
+            "type": "integer"
+          },
+          {
+            "name": "entity_type",
+            "type": "integer"
+          },
+          {
+            "name": "pixel_id",
+            "type": "integer"
+          },
+          {
+            "name": "custom_pixel_data",
+            "type": "string"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "valid": true
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/pixels/<entity_type>",
+      "method": "GET",
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "id": "1",
+            "campaign_lc_id": "1",
+            "entity_type": "1",
+            "pixel_id": "1",
+            "custom_pixel_data": "Demo pixel data"
+          }
+        }
+      ]
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/enable_stats",
+      "method": "POST",
+      "payloads": {
+        "required": [
+          {
+            "name": "is_stats_active",
+            "type": "boolean"
+          },
+          {
+            "name": "page_id",
+            "type": "integer"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": {}
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/page_winner",
+      "method": "POST",
+      "queryStrings": {
+        "required": [
+          {
+            "name": "page_id",
+            "type": "int"
+          }
+        ]
+      },
+      "successResponses": [
+        {
+          "code": 204,
+          "data": {}
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 400,
+          "data":{
+            "code": 400109,
+            "message": "Invalid data entry."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    },
+    {
+      "url": "/bk/campaignslc/<campaign_id>/page_settings",
+      "method": "GET",
+      "successResponses": [
+        {
+          "code": 200,
+          "data": {
+            "campaign_lc_id" : 1,
+            "title" : "Testing title",
+            "description" : "Testing description",
+            "notification_emails" : ["email1@localhost", "email2@localhost"],
+            "purl": {
+               "subdomain" : "subdomain1",
+               "extension_url" : "thk_pages"
+            }
+          }
+        }
+      ],
+      "errorResponses": [
+        {
+          "code": 400,
+          "data": {
+            "code": 401010,
+            "message": "The resource you tried to access is not owned by you."
+          }
+        },
+        {
+          "code": 500,
+          "data": {}
+        }
+      ]
+    }
+  ]
+}
